@@ -22,7 +22,7 @@ doas apk add xf86-video-intel mesa-dri-galium mesa-va-gallium mesa-vdpau-gallium
 `doas apk add sof-firmware alsa-utils alsa-lib pipewire pipewire-alsa pipewire-pulse wireplumber`
 `doas apk echo "options snd_sof sof_debug=1" >> /etc/modprobe.d/alsa-base.conf`
 
-- Connectivity: `doas apk add networkmanager-bluetooth networkmanager-wifi`
+- Connectivity: `doas apk add networkmanager-bluetooth pipewire-spa-bluez networkmanager-wifi`
 
 - DE: `doas apk add gnome gnome-shell gnome-bluetooth gnome-keyring font-liberation`
 
@@ -32,7 +32,7 @@ doas apk add xf86-video-intel mesa-dri-galium mesa-va-gallium mesa-vdpau-gallium
 
 - Swap file:
 ```sh
-doas mkswap -U clear --size 1G --file /swapfile
+doas mkswap -U clear --size 2G --file /swapfile
 doas fallocate -l 1G /swapfile
 doas chmod 600 /swapfile
 doas mkswap /swapfile 
@@ -49,21 +49,21 @@ doas rc-update add networkmanager boot
 doas rc-update del networking boot
 doas rc-update del wpa_supplicant boot
 ```
-Insert on `/etc/gdm/custom.conf`:
-```ini
-[daemon]
-WalandEnable=false
-```
 
 ## Secondary post-installation
 
-- `doas apk add gnome-tweaks gnome-extensions-app decibels amberol gnome-system-monitor evince loupe fastfetch curl git python3 nodejs`
+- `doas apk add gnome-tweaks gnome-extensions-app decibels amberol gnome-system-monitor resources baobab evince loupe curl git python3 nodejs`
 
 - `doas apk add zsh && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 - `doas apk add font-nerd-fonts-symbols build-base gcompat gcc python3-dev musl-dev linux-headers neovim
 git clone https://github.com/LazyVim/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git`
 
+## Next implementations
+- To create an [answer file](https://wiki.alpinelinux.org/wiki/Using_an_answerfile_with_setup-alpine).
+- To automatize apps installation. Maybe coupling it with de installation process (IDK if its possible) or to creating an [APK BUILD](https://wiki.alpinelinux.org/wiki/APKBUILD_examples) 
 - To delete root user
 - To create /home partition with LUKS cryptography
 
+## Issues
+- HDMI doesn't works
