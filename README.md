@@ -14,7 +14,7 @@
 
 - Video:
 ```sh
-doas setup-wayland-base
+doas setup-wayland-base wayland-protocols
 doas apk add xf86-video-intel mesa-dri-galium mesa-va-gallium mesa-vdpau-gallium
 ```
 
@@ -64,6 +64,3 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim && rm -rf ~/.config/
 - To automatize apps installation. Maybe coupling it with de installation process (IDK if its possible) or to creating an [APK BUILD](https://wiki.alpinelinux.org/wiki/APKBUILD_examples) 
 - To delete root user
 - To create /home partition with LUKS cryptography
-
-## Issues
-- HDMI doesn't works
