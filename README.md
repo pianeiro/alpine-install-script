@@ -33,11 +33,12 @@ doas apk echo "options snd_sof sof_debug=1" >> /etc/modprobe.d/alsa-base.conf
 
 ### Connectivity:
 ```bash 
-doas apk add networkmanager-bluetooth pipewire-spa-bluez networkmanager-wifi
+doas apk add networkmanager-bluetooth pipewire-spa-bluez networkmanager-wifi gvfs-fuse
 ``` 
   - `networkmanager-wifi`: basic Wifi lib
   - `networkmanager-bluetooth`: basic Bluetooth lib
   - `pipewire-spa-bluez`: Needed to audio devices work with via Bluetooth
+  - `gvfs-fuse`: Needed to mounted external local paths work.
 
 
 ### DE:
